@@ -1,0 +1,25 @@
+<h1>List of Events</h1>
+<%= link_to 'Add New Event', new_event_path %>
+
+<table>
+  <tr>
+    <th> ID </th>
+    <th> Name </th>
+    <th> Longitude </th>
+    <th> Latitude </th>
+  </tr>
+
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.id %></td>
+      <td><%= event.name %></td>
+      <td><%= event.longitude %></td>
+      <td><%= event.latitude %></td>
+      <td><%= link_to 'show', event_path(event) %></td>
+      <td><%= link_to 'edit', edit_event_path(event) %></td>
+      <td><%= link_to 'Destroy', event_path(event),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
